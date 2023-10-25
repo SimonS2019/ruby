@@ -17,7 +17,7 @@ puts "If password is correct, you will get back the user object"
 
 def auth_user(username, password, list_of_users)
     list_of_users.each do |user_record|
-        if user_record[:name] == username && user_record[:password] == password
+        if user_record[:name] == username && user_record[:password] == password``
             # puts user_record
             return user_record
         end
