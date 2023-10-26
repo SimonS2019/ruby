@@ -17,15 +17,15 @@ module Crud
 #     {name: "user5", password: "password5"}
 # ]
 
-def self.create_hash_digest(password)
+def create_hash_digest(password)
   BCrypt::Password.create(password)
 end
 
-def self.verify_hash_digest(password)
+def verify_hash_digest(password)
   BCrypt::Password.new(password)
 end
 
-  def self.create_secure_users(list_of_users)
+  def create_secure_users(list_of_users)
   list_of_users.each do |user_record|
     # puts user_record[:password]
     user_record[:password] = create_hash_digest(user_record[:password])
@@ -35,7 +35,7 @@ end
 # new_users=create_secure_users(users)
 # puts users
 
-  def self.authenticate_user(username, password, list_of_users)
+  def authenticate_user(username, password, list_of_users)
   list_of_users.each do |user_record|
     # puts user_record[:password]
     if user_record[:name] == username && verify_hash_digest(user_record[:password]) == password
